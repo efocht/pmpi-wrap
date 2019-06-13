@@ -56,7 +56,7 @@ usage_string = \
 import tempfile, getopt, subprocess, sys, os, re, types, itertools
 
 # Default values for command-line parameters
-mpicc = 'mpicc'                    # Default name for the MPI compiler
+mpicc = 'mpincc'                   # Default name for the MPI compiler
 includes = []                      # Default set of directories to inlucde when parsing mpi.h
 pmpi_init_binding = "pmpi_init_"   # Default binding for pmpi_init
 output_fortran_wrappers = False    # Don't print fortran wrappers by default
@@ -73,7 +73,7 @@ pmpi_init_bindings = ["PMPI_INIT", "pmpi_init", "pmpi_init_", "pmpi_init__"]
 # to grab MPI_Wtick and MPI_Wtime, but we'll ignore the f2c and c2f calls
 # that return MPI_Datatypes and other such things.
 # MPI_Aint_add and MPI_Aint_diff return MPI_Aint, so include that too. 
-rtypes = ['int', 'double', 'MPI_Aint' ]
+rtypes = ['int', 'double', 'MPI_Aint', 'MPIR_TYPE_INT' ]
 
 # If we find these strings in a declaration, exclude it from consideration.
 exclude_strings = [ "c2f", "f2c", "typedef", "MPI_T_", "MPI_Comm_spawn" ]
